@@ -53,8 +53,8 @@ $views ??= 2200000;
 	<body onload="updateViewsCount()"><center>
 		<marquee id="marqueeAnnouncement"><span id="contentMarqueeAnnouncement"></span></marquee>
 		<marquee id="marqueeAnnouncementLink"><a href="/gutworx/redirect/announcement.html" id="contentMarqueeAnnouncementLink">click here</a></marquee>
-		<?php include $ROOT . "gutworx/iframes/title-map.php";?>
-		<?php include $ROOT . "gutworx/iframes/announcements.php";?>
+		<?php include $ROOT . "gutworx/components/title-map.php";?>
+		<?php include $ROOT . "gutworx/components/announcements.php";?>
 		<a href="/maps/newest/">
 			<table id="mapsButton" border="1" cellpadding="0" cellspacing="2"><tbody>
 				<tr><td><img src="/gutworx/images/cruelty_squad/menu/start_normal.png"></td></tr>
@@ -98,7 +98,7 @@ $views ??= 2200000;
 			<i class="textIntro">This website is still under construction, thank you for your understanding.</i><br>
 			<br>
 		</td></tr></tbody></table>
-		<?php include $ROOT . "gutworx/iframes/footer.php";?>
+		<?php include $ROOT . "gutworx/components/footer.php";?>
 		<a href="/texture_wall" style="float: right;"><img src="/gutworx/images/dx/wallbutton.gif" width="48" height="48" alt="Texture Wall"></a>
 	</center></body>
 </html>

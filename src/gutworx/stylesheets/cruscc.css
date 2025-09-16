@@ -198,7 +198,8 @@ h2 u:hover {
 /* DATA-TITLE */
 [data-title]:hover:after {
 	opacity: 1;
-	visibility: visible
+	visibility: visible;
+	pointer-events: none;
 }
 
 [data-title]:after {

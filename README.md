@@ -62,7 +62,7 @@ you need to put site assets in the `assets` folder first for this to work
 ## auto rebuild
 
 ```bash
-find src/ -name '*.php' -o -name '*.css' | entr -c php build.php
+find src/ -name '*.php' -o -name '*.css' | entr -c php build.php dev
 ```
 
 if you wanna automatically run the build script whenever you edit a php or css file, you can run something like this on linux

@@ -1,0 +1,217 @@
+body {
+	background-color: black;
+	background-image: var(--cruscc-bg, url("/gutworx/images/cruelty_squad/maps/base/MarbleFace1.png"));
+}
+
+a#messageImportant {
+	color: #FFFFFF;
+	background-color: #FF0000;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 4px;
+	display: block;
+	font-weight: bold;
+	width: 33%
+}
+
+a#messageImportant:hover {
+	color: #FFDD00;
+}
+
+#texturewallButton,
+#mapsButton,
+#modsButton,
+#texturesButton,
+#musicButton {
+	display: inline-block;
+	margin: 4px;
+	margin-top: 16px;
+	color: lime;
+	border-color: magenta;
+	text-shadow: 3px 3px black
+}
+
+#texturewallButton,
+#mapsButton td,
+#modsButton td,
+#texturesButton td,
+#musicButton td {
+	border-color: magenta
+}
+
+#texturewallButton,
+#mapsButton:hover,
+#modsButton:hover,
+#texturesButton:hover,
+#musicButton:hover {
+	border-color: lime;
+	color: magenta
+}
+
+#texturewallButton,
+#mapsButton:hover td,
+#modsButton:hover td,
+#texturesButton:hover td,
+#musicButton:hover td {
+	border-color: lime
+}
+
+#texturewallButton,
+#mapsButton img,
+#modsButton img,
+#texturesButton img,
+#musicButton img {
+	width: 128px;
+	height: 128px;
+	background-color: black
+}
+
+#mapsButton:hover img {
+	content: url(gutworx/images/cruelty_squad/menu/mission_start.png)
+}
+
+#mapsButton td {
+	background-image: url(gutworx/images/cruelty_squad/maps/base/Marble1green.png);
+}
+
+#modsButton:hover img {
+	content: url(gutworx/images/cruelty_squad/menu/implant_character_128px.png)
+}
+
+#modsButton td {
+	background-image: url(gutworx/images/cruelty_squad/maps/base/Marble1red.png);
+}
+
+#texturewallButton td {
+	background-image: url(texture/keith_mason/cruelty_squad/Marble1blue.png);
+}
+
+#texturesButton:hover img {
+	content: url(texture/de_sinople/cruelty_squad/bl_black_white.png)
+}
+
+#texturesButton td {
+	background-image: url(texture/keith_mason/cruelty_squad/Marble1blue.png);
+}
+
+#musicButton:hover img {
+	content: url(gutworx/images/cruelty_squad/misc/speaker_128px.png)
+}
+
+#musicButton td {
+	background-image: url(gutworx/images/cruelty_squad/maps/base/Marble1.png);
+}
+
+#introTable {
+	width: 512px;
+	text-align: center;
+	margin: 8px;
+	border-color: #2D2D2D;
+	background-color: #2D2D2D;
+	background-image: url(gutworx/images/cruelty_squad/maps/base/blackmarble.png)
+}
+
+.welcomeText {
+	color: red;
+	text-shadow: 2px 2px black
+}
+
+.welcomeText:hover {
+	color: white;
+	background-color: red;
+	text-shadow: 2px 2px transparent
+}
+
+.welcomeText:hover img {
+	width: 13px;
+	height: 13px;
+	content: url(gutworx/images/cc0/target_white.png)
+}
+
+.lastUpdated {
+	color: magenta;
+	text-shadow: 2px 2px black
+}
+
+.lastUpdated:hover {
+	color: lime
+}
+
+.mapsCountStyle {
+	background-color: black;
+	color: lime
+}
+
+.mapsCountStyle:hover {
+	color: black;
+	background-color: lime;
+	text-decoration: none
+}
+
+.mapsCountStyle:active {
+	color: white;
+	text-decoration: underline
+}
+
+.modsCountStyle {
+	background-color: blue;
+	color: white
+}
+
+.modsCountStyle:hover {
+	background-color: white;
+	color: blue;
+	text-decoration: none
+}
+
+.modsCountStyle:active {
+	color: black;
+	text-decoration: underline
+}
+
+.viewsCount {
+	color: magenta;
+	text-shadow: 2px 2px black
+}
+
+.viewsCount:hover {
+	color: white;
+	background-color: magenta;
+	text-shadow: 2px 2px transparent
+}
+
+.discordLink {
+	color: blue;
+	text-shadow: 1px 1px black
+}
+
+.discordLink:hover {
+	color: white;
+	background-color: blue;
+	text-shadow: 1px 1px transparent;
+	text-decoration: none
+}
+
+.discordLink:active {
+	color: blue;
+	background-color: white;
+	text-shadow: 2px 2px transparent;
+	text-decoration: underline
+}
+
+.warningMessage {
+	color: gold;
+	text-shadow: 1px 1px black
+}
+
+.warningMessage:hover {
+	color: white
+}
+
+.textIntro {
+	color: lime;
+	text-shadow: 2px 2px black
+}
+
+.textIntro:hover {
+	color: magenta
+}

@@ -38,7 +38,7 @@ $views ??= 2200000;
 				"/gutworx/images/cruelty_squad/maps/ship/sun.png": 1,
 			}) + "')");
 
-			function updateViewsCount() {
+			window.addEventListener("load", () => {
 				//fetch("https://neocities.org/api/info?sitename=cruscc")
 				fetch("https://weirdscifi.ratiosemper.com/neocities.php?sitename=cruscc")
 					.then(res => res.json())
@@ -47,10 +47,10 @@ $views ??= 2200000;
 							element.textContent = new Intl.NumberFormat("en-US").format(data.info.views)
 						)
 					);
-			}
+			});
 		</script>
 	</head>
-	<body onload="updateViewsCount()"><center>
+	<body><center>
 		<marquee id="marqueeAnnouncement"><span id="contentMarqueeAnnouncement"></span></marquee>
 		<marquee id="marqueeAnnouncementLink"><a href="/gutworx/redirect/announcement.html" id="contentMarqueeAnnouncementLink">click here</a></marquee>
 		<?php include $ROOT . "gutworx/components/title-map.php";?>

@@ -43,6 +43,8 @@ php build.php
 
 this goes through every `index.php` file in the `src` folder and renders them into html in the `build` folder
 
+please note that this will overwrite the entire `build` folder (so don't store random stuff in it)
+
 ## preview site
 
 ```bash

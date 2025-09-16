@@ -1,5 +1,4 @@
 build/*
-!build/.gitignore
 assets/*
 !assets/.gitignore
 

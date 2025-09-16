@@ -5,9 +5,9 @@ $ALLOWED_EXTENSIONS = "html css jpg png gif svg ico";
 
 $ALLOWED_EXTENSIONS = array_fill_keys(explode(" ", $ALLOWED_EXTENSIONS), true);
 
-function makedirectory(string $path) {
+function make_directory(string $path) {
 	if (is_dir($path) === false && mkdir($path, 0755, true) === false) {
-		throw new RuntimeException("Failed make directory: " . $path);
+		throw new RuntimeException("Failed to make directory: " . $path);
 	}
 }
 
@@ -24,9 +24,9 @@ if (is_dir("build")) {
 			unlink($file->getRealPath());
 		}
 	}
+} else {
+	make_directory("build");
 }
-
-makedirectory("build");
 
 $count_php = 0;
 $count_built = 0;
@@ -54,10 +54,12 @@ foreach (
 			//$newpath = preg_replace("/^src\/(.+).php$/", "build/$1.html", $path);
 			$newpath = "build/" . substr($path, 4, -4) . ".html";
 
-			makedirectory(dirname($newpath));
+			make_directory(dirname($newpath));
 
 			ob_start();
+
 			require_once $path;
+
 			if (file_put_contents($newpath, ob_get_clean()) === false) {
 				throw new RuntimeException("Failed to write to ". $newpath);
 			}
@@ -76,7 +78,7 @@ foreach (
 		//$newpath = preg_replace("/^src\//", "build/", $path);
 		$newpath = "build/" . substr($path, 4);
 
-		makedirectory(dirname($newpath));
+		make_directory(dirname($newpath));
 
 		if (copy($path, $newpath) === false) {
 			throw new RuntimeException("Failed to copy to ". $newpath);

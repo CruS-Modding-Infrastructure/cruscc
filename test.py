@@ -19,6 +19,18 @@ class TestServer(SimpleHTTPRequestHandler):
 
 		return super().translate_path(str(path_new))
 
+	def send_error(self, code, message=None, explain=None):
+		if code == 404:
+			self.send_response(404, message)
+			self.send_header("Content-type", "text/html")
+			self.end_headers()
+			not_found = Path("build/not_found.html")
+			if not_found.exists():
+				with not_found.open("rb") as f:
+					self.wfile.write(f.read())
+				return
+		super().send_error(code, message, explain)
+
 TCPServer.allow_reuse_address = True
 
 with TCPServer(("", 8000), TestServer) as httpd:

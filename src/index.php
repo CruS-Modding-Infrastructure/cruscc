@@ -1,6 +1,12 @@
 <?php
 require_once $ROOT . "gutworx/core.php";
 
+$current_date = strtoupper(date("j/M/Y"));
+
+$map_count = countMaps();
+
+$mod_count = countMods();
+
 if (!$DEVMODE) { // don't run this in dev to speed up builds
 	$views = json_decode(file_get_contents("https://neocities.org/api/info?sitename=cruscc"), true)["info"]["views"];
 }
@@ -62,7 +68,7 @@ $views ??= 2200000;
 			</tbody></table>
 		</a>
 		<a href="/mods/newest/">
-			<table id="mapsButton" border="1" cellpadding="0" cellspacing="2"><tbody>
+			<table id="modsButton" border="1" cellpadding="0" cellspacing="2"><tbody>
 				<tr><td><img src="/gutworx/images/cruelty_squad/menu/implant_menu_button.png"></td></tr>
 				<tr><td><center><big><b>MODS<br>&amp; TOOLS</b></big></center></td></tr>
 			</tbody></table>
@@ -84,9 +90,9 @@ $views ??= 2200000;
 		<table id="introTable" border="8" cellpadding="0" cellspacing="0"><tbody><tr><td>
 			<marquee>
 				<big><b class="welcomeText"><img src="/gutworx/images/cc0/target.png">Welcome to CruS.CC!<img src="/gutworx/images/cc0/target.png"></b></big>&nbsp;
-				<b class="lastUpdated"><i><u>Last updated:</u> <?=strtoupper(date('j/M/Y'))?></i></b>&nbsp;
-				<b><a href="/maps/newest/" class="mapsCount mapsCountStyle"></a></b>&nbsp;
-				<b><a href="/mods/newest/" class="modsCount modsCountStyle"></a></b>&nbsp;
+				<b class="lastUpdated"><i><u>Last updated:</u> <?=$current_date?></i></b>&nbsp;
+				<b><a href="/maps/newest/" class="mapsCountStyle"><?=$map_count?> maps indexed!</a></b>&nbsp;
+				<b><a href="/mods/newest/" class="modsCountStyle"><?=$mod_count?> mods indexed!</a></b>&nbsp;
 				<b class="viewsCount">♥ <span class="viewsCountNum"><?=number_format($views)?></span> views ♥</b>
 				<b><a href="https://discord.gg/csoftproducts" target="_blank" class="discordLink">Join the official Cruelty Squad discord!</a></b>
 				<!--<b class="warningMessage"><img src="/gutworx/images/cc0/sign.gif">&nbsp;The Custom Textures &amp; Custom Music sections are currently under construction&nbsp;<img src="/gutworx/images/cc0/sign.gif">&nbsp;thank you for your understanding.</b>-->

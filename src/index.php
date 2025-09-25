@@ -44,7 +44,7 @@ $views ??= 2200000;
 				"/gutworx/images/cruelty_squad/maps/ship/sun.png": 1,
 			}) + "')");
 
-			window.addEventListener("load", () => {
+			window.addEventListener("DOMContentLoaded", () => {
 				//fetch("https://neocities.org/api/info?sitename=cruscc")
 				fetch("https://weirdscifi.ratiosemper.com/neocities.php?sitename=cruscc")
 					.then(res => res.json())

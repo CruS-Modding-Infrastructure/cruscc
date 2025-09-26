@@ -3,9 +3,9 @@ require_once $ROOT . "gutworx/core.php";
 
 $current_date = strtoupper(date("j/M/Y"));
 
-$map_count = countMaps();
+$map_count = getMapCount();
 
-$mod_count = countMods();
+$mod_count = getModCount();
 
 if (!$DEVMODE) { // don't run this in dev to speed up builds
 	$views = json_decode(file_get_contents("https://neocities.org/api/info?sitename=cruscc"), true)["info"]["views"];
@@ -57,10 +57,8 @@ $views ??= 2200000;
 		</script>
 	</head>
 	<body><center>
-		<marquee id="marqueeAnnouncement"><span id="contentMarqueeAnnouncement"></span></marquee>
-		<marquee id="marqueeAnnouncementLink"><a href="/gutworx/redirect/announcement.html" id="contentMarqueeAnnouncementLink">click here</a></marquee>
-		<?=component("title-map")?>
 		<?=component("announcements")?>
+		<?=component("title-map")?>
 		<a href="/maps/newest/">
 			<table id="mapsButton" border="1" cellpadding="0" cellspacing="2"><tbody>
 				<tr><td><img src="/gutworx/images/cruelty_squad/menu/start_normal.png"></td></tr>

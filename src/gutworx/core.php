@@ -69,6 +69,14 @@ function getMaps(): array {
 	return $_MAPS;
 }
 
+function getMapsAlphabetical(): array {
+	$maps = getMaps();
+
+	uasort($maps, fn($a, $b) => strcmp($a["MAP_NAME"], $b["MAP_NAME"]));
+
+	return $maps;
+}
+
 function getMods(): array {
 	global $_MODS;
 
@@ -123,6 +131,14 @@ function getMods(): array {
 	uasort($_MODS, fn($a, $b) => $b["DateTimeObj"] <=> $a["DateTimeObj"]);
 
 	return $_MODS;
+}
+
+function getModsAlphabetical(): array {
+	$mods = getMods();
+
+	uasort($mods, fn($a, $b) => strcmp($a["MOD_NAME"], $b["MOD_NAME"]));
+
+	return $mods;
 }
 
 function getMapCount(): int {

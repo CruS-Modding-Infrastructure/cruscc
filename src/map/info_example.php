@@ -1,13 +1,18 @@
 <?php
 
 // full name of the map
-$MAP_NAME = "Example Map Name";
+$MAP_NAME = "An Example Map Name";
 
-// author's id, not full name, example: use "keith_mason" instead of "Keith Mason"
+// author's string id, not full name, example: use "keith_mason" instead of "Keith Mason"
 $MAP_AUTHOR = "example_author";
+// however, you can prefix the name with ? if you just want to use the full name
+// (this is for authors that don't want a godhead page or whatever)
+$MAP_AUTHOR = "?Example Author Name";
 // use a list for $MAP_AUTHOR if there's multiple authors
 $MAP_AUTHOR = [
-	"example_author1", "example_author2", "example_author3",
+	"example_author1",
+	"example_author2",
+	"?Anonymous Author",
 ];
 
 // latest version string, can be anything, doesn't have to be numbers
@@ -17,7 +22,7 @@ $MAP_VERSION = "1.0.0";
 // month part should be exactly three letters long
 $MAP_DATE = "01/JAN/1970";
 
-// optional, overrides the calculated values
+// optional, overrides the calculated rank from reviews
 // possible values are: New, S, A, B, C, X
 $MAP_RANK = "New";
 

@@ -19,6 +19,12 @@ class TestServer(SimpleHTTPRequestHandler):
 
 		return super().translate_path(str(path_new))
 
+	def end_headers(self):
+		self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
+		self.send_header("Pragma", "no-cache")
+		self.send_header("Expires", "0")
+		super().end_headers()
+
 	def send_error(self, code, message=None, explain=None):
 		if code == 404:
 			self.send_response(404, message)

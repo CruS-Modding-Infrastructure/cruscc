@@ -59,33 +59,46 @@ $views ??= 2200000;
 	<body><center>
 		<?=component("announcements")?>
 		<?=component("title-map")?>
-		<a href="/maps/newest/">
-			<table id="mapsButton" border="1" cellpadding="0" cellspacing="2"><tbody>
-				<tr><td><img src="/gutworx/images/cruelty_squad/menu/start_normal.png"></td></tr>
-				<tr><td><center><big><b>CUSTOM<br>MAPS</b></big></center></td></tr>
-			</tbody></table>
-		</a>
-		<a href="/mods/newest/">
-			<table id="modsButton" border="1" cellpadding="0" cellspacing="2"><tbody>
-				<tr><td><img src="/gutworx/images/cruelty_squad/menu/implant_menu_button.png"></td></tr>
-				<tr><td><center><big><b>MODS<br>&amp; TOOLS</b></big></center></td></tr>
-			</tbody></table>
-		</a>
-		<a href="/textures/">
-			<table id="texturesButton" border="1" cellpadding="0" cellspacing="2"><tbody>
-				<tr><td><img src="/texture/de_sinople/cruelty_squad/bl_black_magenta.png"></td></tr>
-				<tr><td><center><big><b>CUSTOM<br>TEXTURES</b></big></center></td></tr>
-			</tbody></table>
-		</a>
-		<!-- <a href="/texture_wall/"><table id="texturewallButton" border="1" cellpadding="0" cellspacing="2"><tbody><tr><td>
-			<img src="/texture_wall/icon.png">
-			</td></tr><tr><td><center><big><b>TEXTURE<br>WALL</b></big></center></td></tr></tbody></table></a> -->
-		<!--
-			<a href="/tracks/newest/"><table id="musicButton" border="1" cellpadding="0" cellspacing="2"><tbody><tr><td>
-				<img src="/gutworx/images/cruelty_squad/misc/radio_128px.png">
-				</td></tr><tr><td><center><big><b>CUSTOM<br>MUSIC</b></big></center></td></tr></tbody></table></a>
-			-->
-		<table id="introTable" border="8" cellpadding="0" cellspacing="0"><tbody><tr><td>
+
+		<?php foreach([
+			[
+				"/maps/newest/", "mapsButton", "CUSTOM<br>MAPS",
+				"/gutworx/images/cruelty_squad/menu/start_normal.png",
+				"/gutworx/images/cruelty_squad/menu/mission_start.png",
+				"gutworx/images/cruelty_squad/maps/base/Marble1green.png",
+			],
+			[
+				"/mods/newest/","modsButton", "MODS<br>&amp; TOOLS",
+				"/gutworx/images/cruelty_squad/menu/implant_menu_button.png",
+				"gutworx/images/cruelty_squad/menu/implant_character_128px.png",
+				"gutworx/images/cruelty_squad/maps/base/Marble1red.png",
+			],
+			[
+				"/textures/", "texturesButton", "CUSTOM<br>TEXTURES",
+				"/texture/de_sinople/cruelty_squad/bl_black_magenta.png",
+				"texture/de_sinople/cruelty_squad/bl_black_white.png",
+				"texture/keith_mason/cruelty_squad/Marble1blue.png",
+			],
+			//[
+			//	"/texture_wall/", "texturewallButton", "TEXTURE<br>WALL",
+			//	"/texture_wall/icon.png",
+			//	"/gutworx/images/dx/wallbutton.gif",
+			//	"texture/keith_mason/cruelty_squad/Marble1blue.png",
+			//],
+			//[
+			//	"/tracks/newest/", "musicButton", "CUSTOM<br>MUSIC",
+			//	"/gutworx/images/cruelty_squad/misc/radio_128px.png",
+			//	"gutworx/images/cruelty_squad/misc/speaker_128px.png",
+			//	"gutworx/images/cruelty_squad/maps/base/Marble1.png",
+			//],
+		] as $b): ?>
+			<a href="<?=$b[0]?>"><table id="<?=$b[1]?>" class="epicBigButton" border="1" cellpadding="0" cellspacing="2">
+				<tr><td><img src="<?=$b[3]?>" class="bigButtImg" style="--hover-img: url('<?=$b[4]?>')"></td></tr>
+				<tr><td style="background-image: url('<?=$b[5]?>')"><center><big><b><?=$b[2]?></b></big></center></td></tr>
+			</table></a>
+		<?php endforeach ?>
+
+		<table id="introTable" border="8" cellpadding="0" cellspacing="0"><tr><td>
 			<marquee>
 				<big><b class="welcomeText"><img src="/gutworx/images/cc0/target.png">Welcome to CruS.CC!<img src="/gutworx/images/cc0/target.png"></b></big>&nbsp;
 				<b class="lastUpdated"><i><u>Last updated:</u> <?=$current_date?></i></b>&nbsp;
@@ -101,8 +114,10 @@ $views ??= 2200000;
 			<i class="textIntro">All of it is hand-coded and manually kept, so please be indulgent of any delays with updates!</i><br>
 			<i class="textIntro">This website is still under construction, thank you for your understanding.</i><br>
 			<br>
-		</td></tr></tbody></table>
+		</td></tr></table>
+
 		<?=component("footer")?>
+
 		<a href="/texture_wall" style="float: right;"><img src="/gutworx/images/dx/wallbutton.gif" width="48" height="48" alt="Texture Wall"></a>
 	</center></body>
 </html>

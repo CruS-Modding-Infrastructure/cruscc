@@ -4,14 +4,6 @@ i made this because updating the crus.cc site is a headache, so now we can use p
 
 this is essentially a static site generator, pushing to this repo will automatically render a static site and deploy changes to neocities using github actions
 
-see sections below if you wanna develop the site on your local machine
-
-## prerequisites
-
-php 8
-
-python 3
-
 ## file structure
 
 the `index.php` files are the entrypoints and each of them correspond to an html page
@@ -34,6 +26,14 @@ godhead/
 		index.php - actual web page for the user
 		data.php - contains user data
 ```
+
+see sections below if you wanna develop the site on your local machine
+
+## prerequisites
+
+php 8
+
+python 3
 
 ## generate html
 
@@ -62,14 +62,14 @@ you need to put site assets in the `assets` folder first for this to work
 ## auto rebuild
 
 ```bash
-find src/ -name '*.php' -o -name '*.css' | entr -c php build.php dev
+python watch.py
 ```
 
-if you wanna automatically run the build script whenever you edit a php or css file, you can run something like this on linux
+this automatically runs the build script whenever you change anything in the `src` folder
 
 this means you just have to refresh the page in your browser (assuming you have test.py running) without having to run the build script each time to see your changes
 
-for windows idk lol, i just use WSL, git bash, or mingw on windows to maintain my sanity, so i would just run the same command through any of those
+(note: this script uses polling as a fallback if you don't have the [watchdog](https://pypi.org/project/watchdog/) library installed)
 
 ## pushing changes to neocities
 

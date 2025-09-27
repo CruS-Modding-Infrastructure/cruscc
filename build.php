@@ -3,7 +3,8 @@
 //$ALLOWED_EXTENSIONS = "apng asc atom avif bin cjs css csv dae eot epub geojson gif glb glsl gltf gpg htm html ico jpeg jpg js json key kml knowl less manifest map markdown md mf mid midi mjs mtl obj opml osdx otf pdf pgp pls png py rdf resolveHandle rss sass scss svg text toml ts tsv ttf txt webapp webmanifest webp woff woff2 xcf xml yaml yml";
 $ALLOWED_EXTENSIONS = "html css jpg png gif svg ico";
 
-$ROOT = __DIR__ . "/src/";
+const SRC = __DIR__ . "/src/";
+
 $DEVMODE = in_array("dev", $argv);
 
 $ALLOWED_EXTENSIONS = array_fill_keys(explode(" ", $ALLOWED_EXTENSIONS), true);

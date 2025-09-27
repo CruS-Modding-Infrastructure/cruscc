@@ -1,5 +1,5 @@
 <?php
-require_once $ROOT . "gutworx/core.php";
+require_once SRC . "gutworx/core.php";
 ?>
 <html>
 	<head>

@@ -6,9 +6,8 @@ require_once "core_users.php";
 require_once "core_reviews.php";
 
 function component(string $path, mixed ...$vars): void {
-	global $ROOT;
 	extract($vars);
-	include($ROOT . "gutworx/components/" . $path . ".php");
+	include(SRC . "gutworx/components/" . $path . ".php");
 }
 
 function getCallerScript(): string {

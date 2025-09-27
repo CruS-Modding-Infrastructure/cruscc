@@ -11,8 +11,6 @@ function getMaps(): array {
 		return $maps;
 	}
 
-	global $ROOT;
-
 	$var_names = [
 		"MAP_NAME" => true,
 		"MAP_AUTHOR" => true,
@@ -25,12 +23,12 @@ function getMaps(): array {
 
 	$maps = [];
 
-	foreach (new DirectoryIterator($ROOT . "map") as $dir) {
+	foreach (new DirectoryIterator(SRC . "map") as $dir) {
 		if (!$dir->isDir() || $dir->isDot()) {
 			continue;
 		}
 
-		$info_path = $ROOT . "map/" . $dir . "/data.php";
+		$info_path = SRC . "map/" . $dir . "/data.php";
 
 		if (!file_exists($info_path)) {
 			continue;

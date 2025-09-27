@@ -7,8 +7,6 @@ function getMods(): array {
 		return $mods;
 	}
 
-	global $ROOT;
-
 	$var_names = [
 		"MOD_NAME" => true,
 		"MOD_AUTHOR" => true,
@@ -21,12 +19,12 @@ function getMods(): array {
 
 	$mods = [];
 
-	foreach (new DirectoryIterator($ROOT . "mod") as $dir) {
+	foreach (new DirectoryIterator(SRC . "mod") as $dir) {
 		if (!$dir->isDir() || $dir->isDot()) {
 			continue;
 		}
 
-		$info_path = $ROOT . "mod/" . $dir . "/data.php";
+		$info_path = SRC . "mod/" . $dir . "/data.php";
 
 		if (!file_exists($info_path)) {
 			continue;

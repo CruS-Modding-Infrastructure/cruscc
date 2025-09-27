@@ -20,8 +20,6 @@ $views ??= 2200000;
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="/gutworx/images/cruelty_squad/cruscc.ico">
 		<link rel="stylesheet" href="/gutworx/stylesheets/cruscc.css">
-		<link rel="stylesheet" href="/maps/ranks.css">
-		<link rel="stylesheet" href="/mods/ranks.css">
 		<link rel="stylesheet" href="index.css">
 		<title>CRUELTY SQUAD CUSTOM CONTENT</title>
 		<meta property="og:title" content=" WELCOME TO CRUELTY SQUAD CUSTOM CONTENT!"/>

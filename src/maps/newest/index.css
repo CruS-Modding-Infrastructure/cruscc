@@ -1,0 +1,19 @@
+body {
+	background-color: dimgray;
+	background-image: url("/gutworx/images/cruelty_squad/maps/sewer/sewerpipe.png");
+}
+
+#listing {
+	border-color: darkgreen;
+	background-color: darkgreen;
+	background-image: url("/gutworx/images/cruelty_squad/maps/base/Marble1green.png");
+}
+
+#listing td{
+	border-color: darkgreen;
+}
+
+/*
+html{scrollbar-color: blue black}
+::-webkit-scrollbar-thumb {border-color: blue}
+::-webkit-scrollbar-thumb:hover {border-color: cyan}*/

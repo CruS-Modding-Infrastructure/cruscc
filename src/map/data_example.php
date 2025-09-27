@@ -69,6 +69,13 @@ $MAP_ARCHIVE = [
 	],
 ];
 
+// optional, defaults to "/map/{map_id}/preview.png"
+$MAP_ICON = "/textures/whatever.png";
+
+// optional, defaults to "/map/{map_id}/"
+// you may use this if you want to list a map that links externally
+$MAP_LINK = "https://gamebanana.com/mods/12345";
+
 // you can also make any custom variable
 // you may use this for map description and objectives or whatever if you want
 $MAP_EXAMPLEVAR = "example value";

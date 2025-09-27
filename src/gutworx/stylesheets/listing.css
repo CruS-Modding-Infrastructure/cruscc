@@ -1,0 +1,322 @@
+#listing {
+	width: 800px;
+	background-color: gray;
+}
+
+#listing td {
+	vertical-align: top;
+	text-align: right;
+}
+
+#listing a {
+	text-decoration: none;
+}
+
+#listing cat {
+	font-size: small;
+	vertical-align: top;
+}
+
+#listing b2 {
+	background-color: black;
+	color: magenta;
+}
+
+#listing i {
+	color: lime;
+}
+
+#listing u {
+	color: white;
+}
+
+#listing b2,
+#listing i,
+#listing u {
+	text-shadow: 1px 1px black;
+}
+
+#listing b:hover b2,
+#listing b:hover i,
+#listing b:hover u {
+	background-color: blue;
+	color: white;
+	text-decoration: none;
+}
+
+#listing b:hover rank:after {
+	background-color: white;
+	color: blue;
+}
+
+#listing b:active b2,
+#listing b:active i,
+#listing b:active u {
+	background-color: lime;
+}
+
+#listing b:active rank:after {
+	color: lime;
+}
+
+#listing a:hover cat:before {
+	color: transparent;
+	background-color: transparent;
+	text-shadow: 0 0 transparent;
+	border-color: transparent;
+	background-image: none;
+	outline-color: transparent;
+	box-shadow: 0 0 transparent;
+}
+
+.stonks {
+	background-color: lime;
+	color: black;
+}
+
+.stinks {
+	background-color: red;
+	color: black;
+}
+
+.stonks img,
+.stinks img {
+	vertical-align: top;
+}
+
+.stonks img {
+	content: url("/gutworx/images/cruelty_squad/menu/stonks.gif");
+}
+
+.stinks img {
+	content: url("/gutworx/images/cruelty_squad/menu/stinks.gif");
+}
+
+a:hover .stonks {
+	background-color: black;
+	color: lime;
+}
+
+a:hover .stinks {
+	background-color: black;
+	color: red;
+}
+
+a:active .stonks,
+a:active .stinks {
+	color: magenta;
+}
+
+a:hover .stonks img,
+a:hover .stinks img {
+	display: none;
+	background-color: white;
+}
+
+a:hover .stonks:before {
+	content: '▲';
+}
+
+a:hover .stinks:before {
+	content: '▼';
+}
+
+a:active .stonks,
+a:active .stinks,
+a:active .stonks:before,
+a:active .stinks:before {
+	background-color: white;
+}
+
+.stonks:after,
+.stinks:after {
+	content: '0';
+	padding-right: 4px;
+	padding-left: 4px;
+}
+
+.pin,
+.pin1,
+.pin2 {
+	padding-right: 3px;
+	padding-left: 1px;
+	background-color: gainsboro;
+	text-shadow: 1px 1px black;
+}
+
+.pin,
+.pin1 {
+	color: magenta;
+}
+
+.pin2 {
+	color: lime;
+}
+
+a:hover .pin,
+a:hover .pin1,
+a:hover .pin2 {
+	background-color: blue;
+	color: white;
+}
+
+a:active .pin,
+a:active .pin1,
+a:active .pin2 {
+	background-color: magenta;
+	color: white;
+}
+
+a:hover .target {
+	display: none;
+}
+
+a:hover pinned {
+	display: inline;
+	color: white;
+	background-color: red;
+}
+
+#navigator,
+#bottom {
+	width: 800px;
+}
+
+#navigator {
+	margin-top: 4px;
+}
+
+#bottom {
+	text-align: right;
+}
+
+.newestActive,
+.popularActive,
+.alphabetActive,
+.newestLink,
+.popularLink,
+.alphabetLink,
+.sort-by {
+	padding: 0px 2px;
+}
+
+.newestActive,
+.popularActive,
+.alphabetActive,
+.newestLink,
+.popularLink,
+.alphabetLink,
+.sort-by,
+.go-up,
+.go-down {
+	vertical-align: bottom;
+}
+
+.newestActive,
+.popularActive,
+.alphabetActive,
+.sort-by {
+	color: black;
+	font-weight: bolder;
+}
+
+.newestLink:hover,
+.popularLink:hover,
+.alphabetLink:hover,
+.go-down:hover,
+.go-up:hover {
+	color: white;
+	text-decoration: none;
+}
+
+.newestLink {
+	color: lime;
+}
+
+.popularLink {
+	color: magenta;
+}
+
+.alphabetLink,
+.go-up {
+	color: blue;
+}
+
+.go-down {
+	color: red;
+}
+
+.newestLink,
+.popularLink,
+.alphabetLink,
+.go-up,
+.go-down {
+	text-shadow: 1px 1px black;
+}
+
+.newestLink:hover {
+	background-color: lime;
+}
+
+.popularLink:hover {
+	background-color: magenta;
+}
+
+.alphabetLink:hover,
+.go-up:hover {
+	background-color: blue;
+}
+
+.sort-by,
+.go-down:hover {
+	background-color: red;
+}
+
+.newestLink:active,
+.popularLink:active,
+.alphabetLink:active,
+.go-up:active,
+.go-down:active {
+	background-color: black;
+	text-shadow: 0 0 transparent;
+}
+
+.newestActive {
+	background-color: lime;
+}
+
+.popularActive {
+	background-color: magenta;
+}
+
+.alphabetActive {
+	background-color: blue;
+}
+
+.cometMarquee {
+	background-color: black;
+	color: white;
+}
+
+.listing-map {
+	position: relative;
+	display: inline-block;
+}
+
+.hover-image {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	width: 128px;
+	height: 128px;
+	border: 1px solid magenta;
+	background-size: cover;
+	background-position: center;
+	z-index: 1000;
+	display: none;
+	pointer-events: none;
+}
+
+.listing-map:hover .hover-image {
+	display: block;
+}

@@ -6,85 +6,65 @@
    <!-- 83 > 100 : S --> */
 
 /* RANKED NEW */
-#map-hilton_hitjob:after,
-#map-great_wages:after,
 
-rank:after,.rankNew{content: 'New!'; color: magenta; background-color: lime}
-.rankNo{background-color: lime; color: black}
+.rankNew:after {
+	content: "New!";
+	color: magenta;
+	background-color: lime;
+}
+
+.rankNo:after {
+	background-color: lime;
+	color: black;
+}
 
 /* RANKED X */
-#map-gelatin_screech:after,
-#map-appall_charter:after,
-#map-barnacle_mills:after,
-#map-dolphin_plaster:after,
-#map-cruelty_squad_maps:after,
-#map-the_good_ending:after,
-#map-my_house:after,
-#map-recall_subterranean:after,
-.rankX{content: 'X'; color: dimgray; background-color: black}
+.rankX:after {
+	content: "X";
+	color: dimgray;
+	background-color: black;
+}
 
 /* RANKED S */
-#map-movie_mayhem_re:after,
-#map-franchise_fiasco_re:after,
-#map-fast_food_frenzy:after,
-#map-metal_glen:after,
-#map-deminished_divinity:after,
-#map-the_punishment_of_sisyphus:after,
-#map-christmas_crisis:after,
-#map-movie_mayhem:after,
-#map-lobotomy_luxury:after,
-#map-sportsball_sacrilege:after,
-#map-headquarters:after,
-#map-construct:after,
-#map-all_hallows_that_ends_well:after,
-#map-graduation_day:after,
-#map-jermas_basement:after,
-#map-aslerbonica:after,
-#map-metro_mania:after,
-#map-methlab_meltdown:after,
-.rankS{content: 'S'; color: lime; background-color: blue; padding-left: 1px; padding-right: 2px; padding-left: 1.5px; padding-right: 1.5px}
+.rankS:after {
+	content: "S";
+	color: lime;
+	background-color: blue;
+	padding-left: 1px;
+	padding-right: 2px;
+	padding-left: 1.5px;
+	padding-right: 1.5px;
+}
 
 /* RANKED A */
-#map-pentad_pacemakers:after,
-#map-abattoir_veganism:after,
-#map-amogus:after,
-#map-rooftop_runner:after,
-#map-nyctophobia:after,
-#map-new_gorb_city:after,
-#map-franchise_fiasco:after,
-#map-renne_renegade:after,
-#map-darknarcotics:after,
-#map-cube_factory:after,
-.rankA{content: 'A'; color: lime; background-color: firebrick}
+.rankA:after {
+	content: 'A';
+	color: lime;
+	background-color: firebrick;
+}
 
 /* RANKED B */
-#map-jump_map_example:after,
-#map-complexium:after,
-#map-streetruckus:after,
-#map-funko_factory:after,
-#map-sin_space_extended:after,
-#map-lobotomy_hills:after,
-#map-armed_men_in_a_building:after,
-#map-supermarket_slaughterhouse:after,
-#map-festival_bloodbath:after,
-#map-end_of_the_world:after,
-#map-E1M1:after,
-#map-dust2:after,
-#map-desert_bus_remaster_pack:after,
-#map-belgha_festival:after,
-#map-golf_resort:after,
-#map-idioce:after,
-.rankB{content: 'B'; color: silver; background-color: darkred; padding-left: 1px; padding-right: 0; padding-left: 1px; padding-right: 0.5px}
+.rankB:after {
+	content: 'B';
+	color: silver;
+	background-color: darkred;
+	padding-left: 1px;
+	padding-right: 0;
+	padding-left: 1px;
+	padding-right: 0.5px
+}
 
 /* RANKED C */
-#map-financial_ruins:after,
-#map-zepplin_zishu:after,
-#map-crackdown:after,
-#map-mcmansion_estate:after,
-#map-church_schizm:after,
-#map-ai_generated_idea_maps:after,
-#map-cadaver_calamity:after,
-.rankC{content: 'C'; color: sienna; background-color: lightsalmon}
+.rankC:after {
+	content: "C";
+	color: sienna;
+	background-color: lightsalmon;
+}
 
 /* SPECIAL COLORS */
-.cometMarquee{color: magenta}.cometMarquee b:hover{color: lime}
+.cometMarquee {
+	color: magenta;
+}
+.cometMarquee b:hover {
+	color: lime;
+}

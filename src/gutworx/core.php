@@ -1,7 +1,8 @@
 <?php
 
-function component(string $path): void {
+function component(string $path, mixed ...$vars): void {
 	global $ROOT;
+	extract($vars);
 	include($ROOT . "gutworx/components/" . $path . ".php");
 }
 
@@ -28,6 +29,8 @@ function getMaps(): array {
 		"MAP_VERSION" => true,
 		"MAP_DATE" => true,
 		"MAP_RANK" => false,
+		"MAP_ICON" => false,
+		"MAP_LINK" => false,
 	];
 
 	$_MAPS = [];
@@ -37,7 +40,7 @@ function getMaps(): array {
 			continue;
 		}
 
-		$info_path = $ROOT . "map/" . $dir . "/info.php";
+		$info_path = $ROOT . "map/" . $dir . "/data.php";
 
 		if (!file_exists($info_path)) {
 			continue;
@@ -55,7 +58,7 @@ function getMaps(): array {
 			if (isset($$key)) {
 				$info[$key] = $$key;
 			} elseif ($required) {
-				fwrite(STDERR, "Warning: \${$key} is not set in map/{$dir}/info.php" . PHP_EOL);
+				fwrite(STDERR, "Warning: \${$key} is not set in map/{$dir}/data.php" . PHP_EOL);
 			}
 		}
 
@@ -77,6 +80,14 @@ function getMapsAlphabetical(): array {
 	return $maps;
 }
 
+function getMapsRanked(): array {
+	$maps = getMaps();
+
+	uasort($maps, fn($a, $b) => $b["DateTimeObj"] <=> $a["DateTimeObj"]);
+
+	return $maps;
+}
+
 function getMods(): array {
 	global $_MODS;
 
@@ -92,6 +103,8 @@ function getMods(): array {
 		"MOD_VERSION" => true,
 		"MOD_DATE" => true,
 		"MOD_RANK" => false,
+		"MOD_ICON" => false,
+		"MOD_LINK" => false,
 	];
 
 	$_MODS = [];
@@ -101,7 +114,7 @@ function getMods(): array {
 			continue;
 		}
 
-		$info_path = $ROOT . "mod/" . $dir . "/info.php";
+		$info_path = $ROOT . "mod/" . $dir . "/data.php";
 
 		if (!file_exists($info_path)) {
 			continue;
@@ -119,7 +132,7 @@ function getMods(): array {
 			if (isset($$key)) {
 				$info[$key] = $$key;
 			} elseif ($required) {
-				fwrite(STDERR, "Warning: \${$key} is not set in mod/{$dir}/info.php" . PHP_EOL);
+				fwrite(STDERR, "Warning: \${$key} is not set in mod/{$dir}/data.php" . PHP_EOL);
 			}
 		}
 
@@ -141,6 +154,14 @@ function getModsAlphabetical(): array {
 	return $mods;
 }
 
+function getModsRanked(): array {
+	$mods = getMods();
+
+	uasort($mods, fn($a, $b) => $b["DateTimeObj"] <=> $a["DateTimeObj"]);
+
+	return $mods;
+}
+
 function getMapCount(): int {
 	return count(getMaps());
 }
@@ -150,31 +171,73 @@ function getModCount(): int {
 }
 
 function getMapName(string $map_id = ""): string {
-	if ($map_id) {
+	if (!$map_id) {
 		$map_id = getCallerBaseDir();
 	}
 
 	return getMaps()[$map_id]["MAP_NAME"];
 }
 
+function getMapIcon(string $map_id = ""): string {
+	if (!$map_id) {
+		$map_id = getCallerBaseDir();
+	}
+
+	return getMaps()[$map_id]["MAP_ICON"] ?? "/map/{$map_id}/preview.png";
+}
+
+function getMapLink(string $map_id = ""): string {
+	if (!$map_id) {
+		$map_id = getCallerBaseDir();
+	}
+
+	return getMaps()[$map_id]["MAP_LINK"] ?? "/map/{$map_id}/";
+}
+
 function getMapAuthorId(string $map_id = ""): string|array {
-	if ($map_id) {
+	if (!$map_id) {
 		$map_id = getCallerBaseDir();
 	}
 
 	return getMaps()[$map_id]["MAP_AUTHOR"];
 }
 
-function getMapAuthorName(string $map_id = ""): string|array {
+function getMapAuthorIds(string $map_id = ""): array {
+	$author_id = getMapAuthorId($map_id);
+
+	return is_array($author_id) ? $author_id : [$author_id];
+}
+
+function getMapAuthorName(string $map_id = ""): string {
 	$author_id = getMapAuthorId($map_id);
 
 	return is_array($author_id)
-		? array_map("getUserName", $author_id)
+		? "Multiple Authors"
 		: getUserName($author_id);
 }
 
+function getMapAuthorNames(string $map_id = ""): array {
+	return array_map("getUserName", getMapAuthorIds($map_id));
+}
+
+function getMapDate(string $map_id = ""): string {
+	if (!$map_id) {
+		$map_id = getCallerBaseDir();
+	}
+
+	return getMaps()[$map_id]["MAP_DATE"];
+}
+
+function getMapRank(string $map_id = ""): string {
+	if (!$map_id) {
+		$map_id = getCallerBaseDir();
+	}
+
+	return getMaps()[$map_id]["MAP_RANK"] ?? "X";
+}
+
 function getUserName(string $user_id = ""): string {
-	if ($user_id) {
+	if (!$user_id) {
 		$user_id = getCallerBaseDir();
 	}
 

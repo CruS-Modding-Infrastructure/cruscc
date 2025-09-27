@@ -1,0 +1,20 @@
+
+body {
+	background-color: #2D2D2D;
+	background-image: url("/gutworx/images/cruelty_squad/maps/PD/oldbooks.png");
+}
+
+#listing {
+	border-color: #2D2D2D;
+	background-color: #2D2D2D;
+	background-image: url("/gutworx/images/cruelty_squad/maps/base/Marble1.png");
+}
+
+#listing td{
+	border-color: #2D2D2D;
+}
+
+/*
+html{scrollbar-color: blue black}
+::-webkit-scrollbar-thumb {border-color: blue}
+::-webkit-scrollbar-thumb:hover {border-color: cyan}*/

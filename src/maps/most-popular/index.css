@@ -1,0 +1,19 @@
+body {
+	background-color: black;
+	background-image: url("/gutworx/images/cruelty_squad/maps/base/catacomb.png");
+}
+
+#listing {
+	border-color: darkred;
+	background-color: darkred;
+	background-image: url("/gutworx/images/cruelty_squad/maps/base/Marble1red.png");
+}
+
+#listing td {
+	border-color: darkred;
+}
+
+/*
+html{scrollbar-color: blue black}
+::-webkit-scrollbar-thumb {border-color: blue}
+::-webkit-scrollbar-thumb:hover {border-color: cyan}*/

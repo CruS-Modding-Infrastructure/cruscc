@@ -19,8 +19,8 @@ require_once $ROOT . "gutworx/core.php";
 			<div style="display: flex; align-items: flex-end;">
 				<div style="flex-shrink: 0;">
 					<b class="sort-by">sort by:</b
-					><b class="newestActive">newest</b
-					><a class="popularLink" href="/maps/most-popular/"><b>most-popular</b></a
+					><a class="newestLink" href="/maps/newest/"><b>newest</b></a
+					><b class="popularActive">most-popular</b
 					><a class="alphabetLink" href="/maps/alphabetically/"><b>alphabetically</b></a>
 				</div>
 				<marquee class="cometMarquee" style="flex-grow: 1; height: 100%">
@@ -31,7 +31,7 @@ require_once $ROOT . "gutworx/core.php";
 			<br/>
 		</div>
 
-	<?=component("listing-maps", MAP_LIST: getMaps())?>
+	<?=component("listing-maps", MAP_LIST: getMapsRanked())?>
 
 	<table border="0" cellpadding="0" cellspacing="0" id="bottom"><tr><td><a class="go-up" href="#top"><b>go up</b></a></td></tr></table>
 

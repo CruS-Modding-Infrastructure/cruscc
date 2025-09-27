@@ -19,9 +19,9 @@ require_once $ROOT . "gutworx/core.php";
 			<div style="display: flex; align-items: flex-end;">
 				<div style="flex-shrink: 0;">
 					<b class="sort-by">sort by:</b
-					><b class="newestActive">newest</b
+					><a class="newestLink" href="/maps/newest/"><b>newest</b></a
 					><a class="popularLink" href="/maps/most-popular/"><b>most-popular</b></a
-					><a class="alphabetLink" href="/maps/alphabetically/"><b>alphabetically</b></a>
+					><b class="alphabetActive">alphabetically</b>
 				</div>
 				<marquee class="cometMarquee" style="flex-grow: 1; height: 100%">
 					<b>&#9733;&nbsp;<?=getMapCount()?> maps indexed!</b>

@@ -12,17 +12,17 @@ the `index.php` files are the entrypoints and each of them correspond to an html
 
 ```
 map/
-	mapname/
+	map_id/
 		index.php - actual web page for the map
 		data.php - contains map data
-		reviews/
-			whatever.php - review filenames can be whatever
+		reviews.php - contains list of reviews
 mod/
-	modname/
+	mod_id/
 		index.php - actual web page for the mod
 		data.php - contains mod data
+		reviews.php - contains list of reviews
 godhead/
-	username/
+	user_id/
 		index.php - actual web page for the user
 		data.php - contains user data
 ```

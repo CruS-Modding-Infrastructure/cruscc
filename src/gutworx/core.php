@@ -3,6 +3,7 @@
 require_once "core_maps.php";
 require_once "core_mods.php";
 require_once "core_users.php";
+require_once "core_reviews.php";
 
 function component(string $path, mixed ...$vars): void {
 	global $ROOT;

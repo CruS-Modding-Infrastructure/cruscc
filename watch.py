@@ -1,10 +1,11 @@
 import os, time
 
+WATCH_PATH = "src"
 BUILD_CMD = "php build.php dev"
 
 num_builds = 0
 
-def run_build():
+def run_build(events = None):
 	global num_builds
 	num_builds += 1
 
@@ -17,25 +18,37 @@ def run_build():
 	else:
 		print(f" ======== BUILD #{num_builds} SUCCESS ======== ")
 
+	if events:
+		print("File changes:")
+		for event in events:
+			print(f"{event.event_type[0].upper()} {event.src_path}")
+
 	print("Press Ctrl+C to stop watching files")
 
 try:
-	import threading
 	from watchdog.observers import Observer
 	from watchdog.events import FileSystemEventHandler
+	from threading import Thread
+	from queue import Queue
 
-	build_event = threading.Event()
+	event_queue = Queue()
 
 	def build_worker():
-		while True:
-			build_event.wait()
-			time.sleep(0.2)
-			build_event.clear()
+		run_build()
 
-			run_build()
+		while True:
+			events = [event_queue.get()]
+
+			time.sleep(0.3)
+
+			while event_queue.qsize():
+				events.append(event_queue.get())
+
+			run_build(events)
 
 	def on_modified(event):
-		build_event.set()
+		if not event.is_directory:
+			event_queue.put(event)
 
 	handler = FileSystemEventHandler()
 	handler.on_modified = on_modified
@@ -44,13 +57,11 @@ try:
 	handler.on_moved = on_modified
 
 	observer = Observer()
-	observer.schedule(handler, "src", recursive=True)
+	observer.schedule(handler, WATCH_PATH, recursive=True)
 	observer.daemon = True
 	observer.start()
 
-	threading.Thread(target=build_worker, daemon=True).start()
-
-	build_event.set()
+	Thread(target=build_worker, daemon=True).start()
 
 	try:
 		observer.join()
@@ -72,7 +83,7 @@ except ImportError:
 	while True:
 		current = 0
 
-		for entry in recursive_scan("src"):
+		for entry in recursive_scan(WATCH_PATH):
 			current ^= hash((entry.path, entry.stat().st_mtime))
 
 		if current != previous:

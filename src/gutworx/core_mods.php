@@ -1,10 +1,10 @@
 <?php
 
 function getMods(): array {
-	global $_MODS;
+	static $mods = null;
 
-	if (isset($_MODS)) {
-		return $_MODS;
+	if ($mods !== null) {
+		return $mods;
 	}
 
 	global $ROOT;
@@ -19,7 +19,7 @@ function getMods(): array {
 		"MOD_LINK" => false,
 	];
 
-	$_MODS = [];
+	$mods = [];
 
 	foreach (new DirectoryIterator($ROOT . "mod") as $dir) {
 		if (!$dir->isDir() || $dir->isDot()) {
@@ -50,12 +50,12 @@ function getMods(): array {
 
 		$info["DateTimeObj"] = DateTime::createFromFormat("j/M/Y", $info["MOD_DATE"]);
 
-		$_MODS[$dir->getFilename()] = $info;
+		$mods[$dir->getFilename()] = $info;
 	}
 
-	uasort($_MODS, fn($a, $b) => $b["DateTimeObj"] <=> $a["DateTimeObj"]);
+	uasort($mods, fn($a, $b) => $b["DateTimeObj"] <=> $a["DateTimeObj"]);
 
-	return $_MODS;
+	return $mods;
 }
 
 function getModsAlphabetical(): array {

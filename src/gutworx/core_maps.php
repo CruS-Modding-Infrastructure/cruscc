@@ -5,10 +5,10 @@ function getMapCount(): int {
 }
 
 function getMaps(): array {
-	global $_MAPS;
+	static $maps = null;
 
-	if (isset($_MAPS)) {
-		return $_MAPS;
+	if ($maps !== null) {
+		return $maps;
 	}
 
 	global $ROOT;
@@ -23,7 +23,7 @@ function getMaps(): array {
 		"MAP_LINK" => false,
 	];
 
-	$_MAPS = [];
+	$maps = [];
 
 	foreach (new DirectoryIterator($ROOT . "map") as $dir) {
 		if (!$dir->isDir() || $dir->isDot()) {
@@ -54,12 +54,12 @@ function getMaps(): array {
 
 		$info["DateTimeObj"] = DateTime::createFromFormat("j/M/Y", $info["MAP_DATE"]);
 
-		$_MAPS[$dir->getFilename()] = $info;
+		$maps[$dir->getFilename()] = $info;
 	}
 
-	uasort($_MAPS, fn($a, $b) => $b["DateTimeObj"] <=> $a["DateTimeObj"]);
+	uasort($maps, fn($a, $b) => $b["DateTimeObj"] <=> $a["DateTimeObj"]);
 
-	return $_MAPS;
+	return $maps;
 }
 
 function getMapsAlphabetical(): array {

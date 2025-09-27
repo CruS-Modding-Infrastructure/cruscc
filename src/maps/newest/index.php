@@ -31,11 +31,10 @@ require_once $ROOT . "gutworx/core.php";
 			<br/>
 		</div>
 
-	<?=component("listing-maps", MAP_LIST: getMaps())?>
+		<?=component("listing/maps", maps: getMaps())?>
 
-	<table border="0" cellpadding="0" cellspacing="0" id="bottom"><tr><td><a class="go-up" href="#top"><b>go up</b></a></td></tr></table>
+		<table border="0" cellpadding="0" cellspacing="0" id="bottom"><tr><td><a class="go-up" href="#top"><b>go up</b></a></td></tr></table>
 
-	<?=component("footer")?>
-
+		<?=component("footer")?>
 	</center></body>
 </html>

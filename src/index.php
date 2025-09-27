@@ -58,43 +58,36 @@ $views ??= 2200000;
 		<?=component("announcements")?>
 		<?=component("title-map")?>
 
-		<?php foreach([
-			[
-				"/maps/newest/", "mapsButton", "CUSTOM<br>MAPS",
-				"/gutworx/images/cruelty_squad/menu/start_normal.png",
-				"/gutworx/images/cruelty_squad/menu/mission_start.png",
-				"gutworx/images/cruelty_squad/maps/base/Marble1green.png",
-			],
-			[
-				"/mods/newest/","modsButton", "MODS<br>&amp; TOOLS",
-				"/gutworx/images/cruelty_squad/menu/implant_menu_button.png",
-				"gutworx/images/cruelty_squad/menu/implant_character_128px.png",
-				"gutworx/images/cruelty_squad/maps/base/Marble1red.png",
-			],
-			[
-				"/textures/", "texturesButton", "CUSTOM<br>TEXTURES",
-				"/texture/de_sinople/cruelty_squad/bl_black_magenta.png",
-				"texture/de_sinople/cruelty_squad/bl_black_white.png",
-				"texture/keith_mason/cruelty_squad/Marble1blue.png",
-			],
-			//[
-			//	"/texture_wall/", "texturewallButton", "TEXTURE<br>WALL",
-			//	"/texture_wall/icon.png",
-			//	"/gutworx/images/dx/wallbutton.gif",
-			//	"texture/keith_mason/cruelty_squad/Marble1blue.png",
-			//],
-			//[
-			//	"/tracks/newest/", "musicButton", "CUSTOM<br>MUSIC",
-			//	"/gutworx/images/cruelty_squad/misc/radio_128px.png",
-			//	"gutworx/images/cruelty_squad/misc/speaker_128px.png",
-			//	"gutworx/images/cruelty_squad/maps/base/Marble1.png",
-			//],
-		] as $b): ?>
-			<a href="<?=$b[0]?>"><table id="<?=$b[1]?>" class="epicBigButton" border="1" cellpadding="0" cellspacing="2">
-				<tr><td><img src="<?=$b[3]?>" class="bigButtImg" style="--hover-img: url('<?=$b[4]?>')"></td></tr>
-				<tr><td style="background-image: url('<?=$b[5]?>')"><center><big><b><?=$b[2]?></b></big></center></td></tr>
-			</table></a>
-		<?php endforeach ?>
+		<?=component("home/bigbutton",
+			link: "/maps/newest/", id: "mapsButton", text: "CUSTOM<br>MAPS",
+			image: "/gutworx/images/cruelty_squad/menu/start_normal.png",
+			hover: "/gutworx/images/cruelty_squad/menu/mission_start.png",
+			bg: "gutworx/images/cruelty_squad/maps/base/Marble1green.png",
+		)?>
+		<?=component("home/bigbutton",
+			link: "/mods/newest/", id: "modsButton", text: "MODS<br>&amp; TOOLS",
+			image: "/gutworx/images/cruelty_squad/menu/implant_menu_button.png",
+			hover: "gutworx/images/cruelty_squad/menu/implant_character_128px.png",
+			bg: "gutworx/images/cruelty_squad/maps/base/Marble1red.png",
+		)?>
+		<?=component("home/bigbutton",
+			link: "/textures/", id: "texturesButton", text: "CUSTOM<br>TEXTURES",
+			image: "/texture/de_sinople/cruelty_squad/bl_black_magenta.png",
+			hover: "texture/de_sinople/cruelty_squad/bl_black_white.png",
+			bg: "texture/keith_mason/cruelty_squad/Marble1blue.png",
+		)?>
+		<!--<?=component("home/bigbutton",
+			link: "/texture_wall/", id: "texturewallButton", text: "TEXTURE<br>WALL",
+			image: "/texture_wall/icon.png",
+			hover: "/gutworx/images/dx/wallbutton.gif",
+			bg: "texture/keith_mason/cruelty_squad/Marble1blue.png",
+		)?>-->
+		<!--<?=component("home/bigbutton",
+			link: "/tracks/newest/", id: "musicButton", text: "CUSTOM<br>MUSIC",
+			image: "/gutworx/images/cruelty_squad/misc/radio_128px.png",
+			hover: "gutworx/images/cruelty_squad/misc/speaker_128px.png",
+			bg: "gutworx/images/cruelty_squad/maps/base/Marble1.png",
+		)?>-->
 
 		<table id="introTable" border="8" cellpadding="0" cellspacing="0"><tr><td>
 			<marquee>

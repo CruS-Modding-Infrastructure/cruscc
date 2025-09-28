@@ -1,5 +1,5 @@
 <b id="listing-<?=$id?>" class="listing-map">
-	<a href="<?=$link?>">
+	<a href="<?=$link?>" target="_blank">
 		<b2><?=$name?></b2
 		><i title="<?=$author_hover?>"
 		> by <?=$author_name?> </i

@@ -110,9 +110,13 @@ function getMapAuthorIds(string $map_id = ""): array {
 function getMapAuthorName(string $map_id = ""): string {
 	$author_id = getMapAuthorId($map_id);
 
-	return is_array($author_id)
-		? "Multiple Authors"
-		: getUserName($author_id);
+	if (is_array($author_id)) {
+		$str = implode(" & ", getMapAuthorNames($map_id));
+
+		return strlen($str) < 25 ? $str : "Multiple Authors";
+	}
+
+	return getUserName($author_id);
 }
 
 function getMapAuthorNames(string $map_id = ""): array {

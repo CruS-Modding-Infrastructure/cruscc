@@ -5,7 +5,8 @@
 			link: getMapLink($map_id),
 			name: strtoupper(getMapName($map_id)),
 			author_name: strtoupper(getMapAuthorName($map_id)),
-			author_hover: is_array(getMapAuthorId($map_id)) ? implode("\n", getMapAuthorNames($map_id)) : "",
+			author_hover: getMapAuthorName($map_id) === "Multiple Authors"
+				? implode("\n", getMapAuthorNames($map_id)) : "",
 			date: getMapDate($map_id),
 			rank: getMapRank($map_id),
 			icon: getMapIcon($map_id),

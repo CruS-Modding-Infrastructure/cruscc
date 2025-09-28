@@ -78,33 +78,25 @@ function getMapsRanked(): array {
 }
 
 function getMapName(string $map_id = ""): string {
-	if (!$map_id) {
-		$map_id = getCallerBaseDir();
-	}
+	$map_id = $map_id ?: getCallerBaseDir();
 
 	return getMaps()[$map_id]["MAP_NAME"];
 }
 
 function getMapIcon(string $map_id = ""): string {
-	if (!$map_id) {
-		$map_id = getCallerBaseDir();
-	}
+	$map_id = $map_id ?: getCallerBaseDir();
 
 	return getMaps()[$map_id]["MAP_ICON"] ?? "/map/{$map_id}/preview.png";
 }
 
 function getMapLink(string $map_id = ""): string {
-	if (!$map_id) {
-		$map_id = getCallerBaseDir();
-	}
+	$map_id = $map_id ?: getCallerBaseDir();
 
 	return getMaps()[$map_id]["MAP_LINK"] ?? "/map/{$map_id}/";
 }
 
 function getMapAuthorId(string $map_id = ""): string|array {
-	if (!$map_id) {
-		$map_id = getCallerBaseDir();
-	}
+	$map_id = $map_id ?: getCallerBaseDir();
 
 	return getMaps()[$map_id]["MAP_AUTHOR"];
 }
@@ -128,17 +120,13 @@ function getMapAuthorNames(string $map_id = ""): array {
 }
 
 function getMapDate(string $map_id = ""): string {
-	if (!$map_id) {
-		$map_id = getCallerBaseDir();
-	}
+	$map_id = $map_id ?: getCallerBaseDir();
 
 	return getMaps()[$map_id]["MAP_DATE"];
 }
 
 function getMapRank(string $map_id = ""): string {
-	if (!$map_id) {
-		$map_id = getCallerBaseDir();
-	}
+	$map_id = $map_id ?: getCallerBaseDir();
 
 	return getMaps()[$map_id]["MAP_RANK"]
 		?? parseMapReviews($map_id)["rank"]
@@ -146,17 +134,13 @@ function getMapRank(string $map_id = ""): string {
 }
 
 function getMapRating(string $map_id = ""): float {
-	if (!$map_id) {
-		$map_id = getCallerBaseDir();
-	}
+	$map_id = $map_id ?: getCallerBaseDir();
 
 	return parseMapReviews($map_id)["total_rating"] ?? -1.0;
 }
 
 function parseMapReviews(string $map_id = ""): array {
-	if (!$map_id) {
-		$map_id = getCallerBaseDir();
-	}
+	$map_id = $map_id ?: getCallerBaseDir();
 
 	return parseReviews(SRC . "map/{$map_id}/reviews.php", "map/{$map_id}");
 }

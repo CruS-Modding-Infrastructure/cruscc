@@ -46,9 +46,10 @@ function getMods(): array {
 			}
 		}
 
+		$info["id"] = $dir->getFilename();
 		$info["DateTimeObj"] = DateTime::createFromFormat("j/M/Y", $info["MOD_DATE"]);
 
-		$mods[$dir->getFilename()] = $info;
+		$mods[$info["id"]] = $info;
 	}
 
 	uasort($mods, fn($a, $b) => $b["DateTimeObj"] <=> $a["DateTimeObj"]);

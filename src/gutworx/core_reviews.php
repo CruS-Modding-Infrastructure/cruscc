@@ -1,16 +1,24 @@
 <?php
 
-function _createReview(string $user = "", string $rating = "", string $text): array {
-	if (!$user) {
-		$user = "Anonymous";
-	}
+function ratingToRank(?float $rating): string {
+	return match(true) {
+		$rating === null => "X",
+		$rating >= 0.83 => "S",
+		$rating >= 0.66 => "A",
+		$rating >= 0.40 => "B",
+		default => "C",
+	};
+}
+
+function _createReview(string $text, string $user = "", string $rating = ""): array {
+	$user = $user ?: "Anonymous";
 
 	$review = [
 		"user" => $user,
 		"text" => $text,
 	];
 
-	if (isset($rating)) {
+	if ($rating) {
 		$review["rating"] = $rating;
 
 		$value = getRatingValue($rating);
@@ -24,21 +32,21 @@ function _createReview(string $user = "", string $rating = "", string $text): ar
 }
 
 function getRatingValue(string $rating): ?float {
-	return @($p = explode('/', $rating, 2))[1] ? $p[0] / $p[1] : null;
+	return @($p = explode("/", $rating, 2))[1] ? $p[0] / $p[1] : null;
 }
 
-function Review(string $user = "", string $rating = "", string $text) : void {
+function Review(string $text, string $user = "", string $rating = "") : void {
 	global $__reviews;
 
 	if (isset($__reviews)) {
-		$__reviews[] = _createReview($user, $rating, $text);
+		$__reviews[] = _createReview($text, $user, $rating);
 	}
 };
 
-function parseReviews(string $path): array {
+function parseReviews(string $path, string $identifier = ""): array {
 	static $cache = [];
 
-	$key = realpath($path);
+	$key = $identifier ?: realpath($path);
 
 	if (isset($cache[$key])) {
 		return $cache[$key];
@@ -50,7 +58,22 @@ function parseReviews(string $path): array {
 	try {
 		include $path;
 
-		$cache[$key] = &$__reviews;
+		$ratings = [];
+
+		foreach ($__reviews as $review) {
+			if (isset($review["value"])) {
+				$ratings[] = $review["value"];
+			}
+		}
+
+		$total_rating = empty($ratings) ? null
+			: array_sum($ratings) / count($ratings);
+
+		$cache[$key] = [
+			"list" => &$__reviews,
+			"total_rating" => $total_rating,
+			"rank" => ratingToRank($total_rating),
+		];
 	} finally {
 		unset($__reviews);
 	}

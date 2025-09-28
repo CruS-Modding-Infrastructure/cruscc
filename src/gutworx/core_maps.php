@@ -50,9 +50,10 @@ function getMaps(): array {
 			}
 		}
 
+		$info["id"] = $dir->getFilename();
 		$info["DateTimeObj"] = DateTime::createFromFormat("j/M/Y", $info["MAP_DATE"]);
 
-		$maps[$dir->getFilename()] = $info;
+		$maps[$info["id"]] = $info;
 	}
 
 	uasort($maps, fn($a, $b) => $b["DateTimeObj"] <=> $a["DateTimeObj"]);
@@ -71,7 +72,7 @@ function getMapsAlphabetical(): array {
 function getMapsRanked(): array {
 	$maps = getMaps();
 
-	uasort($maps, fn($a, $b) => $b["DateTimeObj"] <=> $a["DateTimeObj"]);
+	uksort($maps, fn($a, $b) => getMapRating($b) <=> getMapRating($a));
 
 	return $maps;
 }
@@ -139,5 +140,23 @@ function getMapRank(string $map_id = ""): string {
 		$map_id = getCallerBaseDir();
 	}
 
-	return getMaps()[$map_id]["MAP_RANK"] ?? "X";
+	return getMaps()[$map_id]["MAP_RANK"]
+		?? parseMapReviews($map_id)["rank"]
+		?? "X";
+}
+
+function getMapRating(string $map_id = ""): float {
+	if (!$map_id) {
+		$map_id = getCallerBaseDir();
+	}
+
+	return parseMapReviews($map_id)["total_rating"] ?? -1.0;
+}
+
+function parseMapReviews(string $map_id = ""): array {
+	if (!$map_id) {
+		$map_id = getCallerBaseDir();
+	}
+
+	return parseReviews(SRC . "map/{$map_id}/reviews.php", "map/{$map_id}");
 }

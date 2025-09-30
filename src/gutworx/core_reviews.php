@@ -52,6 +52,10 @@ function parseReviews(string $path, string $identifier = ""): array {
 		return $cache[$key];
 	}
 
+	if (!file_exists($path)) {
+		return [];
+	}
+
 	global $__reviews;
 	$__reviews = [];
 

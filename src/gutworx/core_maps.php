@@ -86,7 +86,13 @@ function getMapName(string $map_id = ""): string {
 function getMapIcon(string $map_id = ""): string {
 	$map_id = $map_id ?: getCallerBaseDir();
 
-	return getMaps()[$map_id]["MAP_ICON"] ?? "/map/{$map_id}/preview.png";
+	$icon = getMaps()[$map_id]["MAP_ICON"] ?? "/map/{$map_id}/preview.png";
+
+	if (substr($icon, 0, 2) === "./") {
+		$icon = "/map/{$map_id}" . substr($icon, 1);
+	}
+
+	return $icon;
 }
 
 function getMapLink(string $map_id = ""): string {
